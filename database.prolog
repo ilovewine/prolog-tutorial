@@ -1,4 +1,5 @@
-:- module(database, [person/3]).
+:- module(database, [person/3, connection/2]).
+:- table connection/2.
 
 person(sebastian, jarosz, birth(29, 03, 1995)).
 person(mateusz, piątkowski, birth(01, 12, 1985)).
@@ -7,3 +8,16 @@ person(mateusz, kowalski, birth(05, 05, 1995)).
 person(michal, tenczyński, birth(12, 08, 2002)).
 person(taduesz, ponczek, birth(12, 12, 2012)).
 person(gabriela, tomczak, birth(10, 04, 2000)).
+
+connection('Krakow', 'Warszawa').
+%connection('Lublin', 'Warszawa').
+connection('Krakow', 'Gdansk').
+connection('Gdynia', 'Wroclaw').
+%connection('Wroclaw', 'Krakow').
+%connection('Poznan', 'Warszawa').
+%connection('Lublin', 'Gdansk').
+connection('Gdansk', 'Gdynia').
+connection('Lublin', 'Poznan').
+%connection('Poznan', 'Krakow').
+connection(X, Y) :- connection(X, Z), connection(Z, Y).
+connection(X, Y) :- connection(Y, X).

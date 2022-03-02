@@ -1,2 +1,3 @@
 :- use_module(database).
-:- use_module(numbers).
+:- use_module(custom_numbers).
+:- use_module(custom_lists).

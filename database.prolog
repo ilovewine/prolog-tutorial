@@ -1,3 +1,5 @@
+:- module(database, [person/3]).
+
 person(sebastian, jarosz, birth(29, 03, 1995)).
 person(mateusz, piątkowski, birth(01, 12, 1985)).
 person(martyna, wojciechowska, birth(03, 01, 1742)).

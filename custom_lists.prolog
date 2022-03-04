@@ -41,24 +41,17 @@ char_codes_to_list([ElementCode|CodeList], List, Helper) :-
 	char_code(Element, ElementCode),
 	char_codes_to_list(CodeList, List, [Element|Helper]).
 
-quicksort([El2, El1], [El1, El2]) :- El1 =< El2.
-quicksort([El1, El2], [El1, El2]) :- !.
+quicksort([], []).
 quicksort([Head|Tail], SortedList) :-
-	split_sort(Head, [Head|Tail], FirstHalf, SecondHalf),
+	split_sort(Head, Tail, FirstHalf, SecondHalf),
 	quicksort(FirstHalf, SortedFirstHalf),
 	quicksort(SecondHalf, SortedSecondHalf),
-	append(SortedFirstHalf, SortedSecondHalf, SortedList),
+	append(SortedFirstHalf, [Head|SortedSecondHalf], SortedList),
 	!.
 
-split_sort(Element, List, FirstHalf, SecondHalf) :-
-	split_sort(Element, List, FirstHalf, [], SecondHalf, []).
-split_sort(Element, [El|List], FirstHalf, FirstHelper, SecondHalf, SecondHelper) :-
-	El =< Element,
-	split_sort(Element, List, FirstHalf, [El|FirstHelper], SecondHalf, SecondHelper),
-	!.
-split_sort(Element, [El|List], FirstHalf, FirstHelper, SecondHalf, SecondHelper) :-
-	split_sort(Element, List, FirstHalf, FirstHelper, SecondHalf, [El|SecondHelper]).
-split_sort(_Element, [], FirstHalf, FirstHalf, SecondHalf, SecondHalf) :- !.
+split_sort(_, [], [], []).
+split_sort(Pivot, [El|List], [El|FirstHalf], SecondHalf) :- El =< Pivot, !, split_sort(Pivot, List, FirstHalf, SecondHalf).
+split_sort(Pivot, [El|List], FirstHalf, [El|SecondHalf]) :- El > Pivot, split_sort(Pivot, List, FirstHalf, SecondHalf).
 
 random_list(0, []) :- !.
 random_list(Length, [Head|List]) :-

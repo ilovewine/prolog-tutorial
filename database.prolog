@@ -9,6 +9,16 @@ person(michal, tenczyński, birth(12, 08, 2002)).
 person(taduesz, ponczek, birth(12, 12, 2012)).
 person(gabriela, tomczak, birth(10, 04, 2000)).
 
+team(green, mateusz).
+team(green, michal).
+team(green, tadeusz).
+team(red, maria).
+team(red, anna).
+team(red, justyna).
+team(blue, piotr).
+team(blue, michal).
+team(blue, zygmunt).
+
 connection('Krakow', 'Warszawa').
 %connection('Lublin', 'Warszawa').
 connection('Krakow', 'Gdansk').

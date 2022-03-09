@@ -31,3 +31,8 @@ prime(Number, Helper) :-
 	GCD \= 1,
 	write(Number), write(' is divisible by '), writeln(GCD),
 	fail.
+
+%prime(23535923437).
+%even(34).
+%even(47).
+%fibonacci(246, Result).

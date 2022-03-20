@@ -4,3 +4,4 @@
 :- use_module(custom_lists).
 :- use_module(structures).
 :- use_module(custom_expressions).
+:- use_module(custom_finite_domains).

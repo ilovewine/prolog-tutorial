@@ -1,6 +1,11 @@
 :- module(custom_numbers, [even/1, odd/1, fibonacci/2, prime/1]).
 :- table fibonacci/2.
 
+%X = 3 + 2.
+%X is 3 + 2.
+%Y = 2, X is 3 + Y.
+%X is 3 + Y, Y = 2.
+
 even(Number) :- Number mod 2 =:= 0.
 odd(Number) :- \+ even(Number).
 
